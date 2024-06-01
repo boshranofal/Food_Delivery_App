@@ -7,42 +7,42 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.notifications),
-            onPressed: () {},
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.notifications),
+          onPressed: () {},
+        ),
+      ],
+      centerTitle: true,
+      title: const Column(
+        children: [
+          Text(
+            'Current Location',
+            style: TextStyle(
+              color: AppColors.grey,
+              fontSize: 14,
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.location_on,
+                color: AppColors.green,
+              ),
+              SizedBox(
+                width: 4,
+              ),
+              Text(
+                'Nablus, Palestine',
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+            ],
           ),
         ],
-        centerTitle: true,
-        title: const Column(
-          children: [
-            Text(
-              'Current Location',
-              style: TextStyle(
-                color: AppColors.grey,
-                fontSize: 14,
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.location_on,
-                  color: AppColors.green,
-                ),
-                SizedBox(
-                  width: 4,
-                ),
-                Text(
-                  'Cairo, Egypt',
-                  style: TextStyle(
-                    fontSize: 20,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      );
+      ),
+    );
   }
 }

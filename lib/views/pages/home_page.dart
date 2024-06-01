@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+//import 'package:flutter/widgets.dart';
 import 'package:food_delivery/models/category_model.dart';
 import 'package:food_delivery/models/product_model.dart';
 import 'package:food_delivery/utils/app_colors.dart';
@@ -15,6 +15,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String? selectedCategoryId;
   late List<ProductModel> filteredProducts;
+  String? selectedProductyId;
 
   @override
   void initState() {
@@ -49,11 +50,18 @@ class _HomePageState extends State<HomePage> {
                     child: InkWell(
                       onTap: () {
                         setState(() {
-                          selectedCategoryId = category.id;
-                          filteredProducts = dummyProducts
-                              .where((product) =>
-                                  product.category.id == selectedCategoryId)
-                              .toList();
+                          if (selectedCategoryId != null &&
+                              selectedCategoryId == category.id) {
+                            selectedCategoryId = null;
+                            filteredProducts = dummyProducts;
+                            return;
+                          } else {
+                            selectedCategoryId = category.id;
+                            filteredProducts = dummyProducts
+                                .where((product) =>
+                                    product.category.id == selectedCategoryId)
+                                .toList();
+                          }
                         });
                       },
                       child: DecoratedBox(
@@ -123,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Image.network(
                               product.imgUrl,
-                              height: 100,
+                              height: 60,
                             ),
                             const SizedBox(height: 4),
                             Text(
@@ -153,11 +161,20 @@ class _HomePageState extends State<HomePage> {
                             shape: BoxShape.circle,
                           ),
                           child: InkWell(
-                            onTap: () {},
-                            child: const Padding(
+                            onTap: () {
+                              if (favProducts.contains(product)) {
+                                favProducts.remove(product);
+                              } else {
+                                favProducts.add(product);
+                              }
+                              setState(() {});
+                            },
+                            child: Padding(
                               padding: EdgeInsets.all(4.0),
                               child: Icon(
-                                Icons.favorite_border,
+                                favProducts.contains(product)
+                                    ? Icons.favorite
+                                    : Icons.favorite_border,
                                 size: 15,
                                 color: AppColors.primary,
                               ),
