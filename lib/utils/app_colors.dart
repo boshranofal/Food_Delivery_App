@@ -8,4 +8,6 @@ class AppColors {
   static Color grey100 = Colors.grey.shade100;
   static const Color black = Colors.black;
   static const Color primary = Colors.deepOrange;
+  static const Color yallow = Colors.yellowAccent;
+  static const Color orang = Color.fromARGB(255, 221, 189, 147);
 }

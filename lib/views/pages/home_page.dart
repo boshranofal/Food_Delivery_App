@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/models/category_model.dart';
 import 'package:food_delivery/models/product_model.dart';
 import 'package:food_delivery/utils/app_colors.dart';
+import 'package:food_delivery/views/pages/product_details_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -116,73 +117,82 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (_, index) {
                 final product = filteredProducts[index];
 
-                return DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.network(
-                              product.imgUrl,
-                              height: 60,
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              product.name,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
+                return InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                      return ProductDetailsPage(
+                        product: product,
+                      );
+                    }));
+                  },
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: AppColors.white,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.network(
+                                product.imgUrl,
+                                height: 60,
                               ),
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              '\$${product.price}',
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.primary,
+                              const SizedBox(height: 4),
+                              Text(
+                                product.name,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Positioned(
-                        top: 8,
-                        right: 8,
-                        child: DecoratedBox(
-                          decoration: BoxDecoration(
-                            color: AppColors.grey100,
-                            shape: BoxShape.circle,
-                          ),
-                          child: InkWell(
-                            onTap: () {
-                              if (favProducts.contains(product)) {
-                                favProducts.remove(product);
-                              } else {
-                                favProducts.add(product);
-                              }
-                              setState(() {});
-                            },
-                            child: Padding(
-                              padding: EdgeInsets.all(4.0),
-                              child: Icon(
-                                favProducts.contains(product)
-                                    ? Icons.favorite
-                                    : Icons.favorite_border,
-                                size: 15,
-                                color: AppColors.primary,
+                              const SizedBox(height: 4),
+                              Text(
+                                '\$${product.price}',
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.primary,
+                                ),
                               ),
-                            ),
+                            ],
                           ),
                         ),
-                      ),
-                    ],
+                        Positioned(
+                          top: 8,
+                          right: 8,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              color: AppColors.grey100,
+                              shape: BoxShape.circle,
+                            ),
+                            child: InkWell(
+                              onTap: () {
+                                if (favProducts.contains(product)) {
+                                  favProducts.remove(product);
+                                } else {
+                                  favProducts.add(product);
+                                }
+                                setState(() {});
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.all(4.0),
+                                child: Icon(
+                                  favProducts.contains(product)
+                                      ? Icons.favorite
+                                      : Icons.favorite_border,
+                                  size: 15,
+                                  color: AppColors.primary,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },
