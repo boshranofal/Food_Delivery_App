@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/utils/app_theme.dart';
+//import 'package:food_delivery/utils/app_colors.dart';
 import 'package:food_delivery/views/pages/custom_bottom_navbar.dart';
 
 void main() {
@@ -14,10 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Food Delivery',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: AppTheme.lighttheme(),
       home: const CustomBottomNavbar(),
     );
   }

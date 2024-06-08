@@ -44,13 +44,13 @@ class _FavoritepageState extends State<Favoritepage> {
                         child: Row(
                           children: [
                             IconButton(
-                                onPressed: () {
-                                  if (favProducts[index].count > 1) {
-                                    setState(() {
-                                      favProducts[index].count--;
-                                    });
-                                  }
-                                },
+                                onPressed: favProducts[index].count > 1
+                                    ? () {
+                                        setState(() {
+                                          favProducts[index].count--;
+                                        });
+                                      }
+                                    : null,
                                 icon: const Icon(
                                   Icons.remove,
                                   color: AppColors.white,

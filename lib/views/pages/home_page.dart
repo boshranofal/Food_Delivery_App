@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16),
                           color: selectedCategoryId == category.id
-                              ? AppColors.primary
+                              ? Theme.of(context).primaryColor
                               : AppColors.white,
                         ),
                         child: Padding(
@@ -143,21 +143,19 @@ class _HomePageState extends State<HomePage> {
                                 height: 60,
                               ),
                               const SizedBox(height: 4),
-                              Text(
-                                product.name,
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 16,
-                                ),
-                              ),
+                              Text(product.name,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleMedium!
+                                      .copyWith(fontWeight: FontWeight.w600)),
                               const SizedBox(height: 4),
-                              Text(
-                                '\$${product.price}',
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColors.primary,
-                                ),
-                              ),
+                              Text('\$${product.price}',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleSmall!
+                                      .copyWith(
+                                          color:
+                                              Theme.of(context).primaryColor)),
                             ],
                           ),
                         ),
@@ -185,7 +183,7 @@ class _HomePageState extends State<HomePage> {
                                       ? Icons.favorite
                                       : Icons.favorite_border,
                                   size: 15,
-                                  color: AppColors.primary,
+                                  color: Theme.of(context).primaryColor,
                                 ),
                               ),
                             ),
