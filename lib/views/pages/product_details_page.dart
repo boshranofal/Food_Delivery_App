@@ -19,7 +19,7 @@ class ProductDetailsPage extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Padding(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -84,7 +84,7 @@ class ProductDetailsPage extends StatelessWidget {
                   ),
                   Center(
                     child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 16),
+                      padding: const EdgeInsets.symmetric(vertical: 16),
                       decoration: BoxDecoration(
                           color: const Color.fromARGB(255, 224, 205, 179),
                           borderRadius: BorderRadius.circular(20)),
@@ -118,7 +118,7 @@ class ProductDetailsPage extends StatelessWidget {
                   ),
                   Center(
                       child: Container(
-                          padding: EdgeInsets.symmetric(vertical: 16),
+                          padding: const EdgeInsets.symmetric(vertical: 16),
                           decoration: BoxDecoration(
                               color: const Color.fromARGB(255, 224, 205, 179),
                               borderRadius: BorderRadius.circular(20)),
@@ -152,10 +152,11 @@ class ProductDetailsPage extends StatelessWidget {
                   Center(
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromARGB(255, 235, 57, 116),
+                          backgroundColor:
+                              const Color.fromARGB(255, 235, 57, 116),
                           padding: const EdgeInsets.symmetric(
                               horizontal: 32, vertical: 16),
-                          textStyle: TextStyle(fontSize: 20),
+                          textStyle: const TextStyle(fontSize: 20),
                         ),
                         onPressed: () {},
                         child: const Text(

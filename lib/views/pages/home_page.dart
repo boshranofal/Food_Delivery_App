@@ -177,7 +177,7 @@ class _HomePageState extends State<HomePage> {
                                 setState(() {});
                               },
                               child: Padding(
-                                padding: EdgeInsets.all(4.0),
+                                padding: const EdgeInsets.all(4.0),
                                 child: Icon(
                                   favProducts.contains(product)
                                       ? Icons.favorite
