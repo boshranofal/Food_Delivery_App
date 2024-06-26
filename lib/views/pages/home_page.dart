@@ -1,4 +1,5 @@
 //import 'package:flutter/cupertino.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter/widgets.dart';
 import 'package:food_delivery/models/category_model.dart';
@@ -138,8 +139,8 @@ class _HomePageState extends State<HomePage> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Image.network(
-                                product.imgUrl,
+                              CachedNetworkImage(
+                                imageUrl: product.imgUrl,
                                 height: 60,
                               ),
                               const SizedBox(height: 4),

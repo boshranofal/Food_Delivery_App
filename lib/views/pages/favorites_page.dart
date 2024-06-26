@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/models/product_model.dart';
 import 'package:food_delivery/utils/app_colors.dart';
@@ -23,19 +24,25 @@ class _FavoritepageState extends State<Favoritepage> {
                 'assets/images/home-banner.jpg',
               ),
             ),
+            const SizedBox(
+              height: 16,
+            ),
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               itemCount: favProducts.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text(
-                    favProducts[index].name,
+                  title: Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: Text(
+                      favProducts[index].name,
+                    ),
                   ),
                   subtitle: Row(children: [
                     Text('\$${favProducts[index].price.toStringAsFixed(2)}'),
                     const SizedBox(
-                      width: 8,
+                      width: 16,
                     ),
                     Container(
                         decoration: BoxDecoration(
@@ -73,8 +80,8 @@ class _FavoritepageState extends State<Favoritepage> {
                           ],
                         ))
                   ]),
-                  leading: Image.network(
-                    favProducts[index].imgUrl,
+                  leading: CachedNetworkImage(
+                    imageUrl: favProducts[index].imgUrl,
                     width: 70,
                     height: 70,
                     fit: BoxFit.fill,

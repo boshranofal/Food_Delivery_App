@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/models/product_model.dart';
 import 'package:food_delivery/utils/app_colors.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class ProductDetailsPage extends StatelessWidget {
   final ProductModel product;
@@ -23,8 +24,8 @@ class ProductDetailsPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Image.network(
-                    product.imgUrl,
+                  CachedNetworkImage(
+                    imageUrl: product.imgUrl,
                     height: 200,
                   ),
                   const SizedBox(
