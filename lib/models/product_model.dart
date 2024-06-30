@@ -8,6 +8,7 @@ class ProductModel {
   final double price;
   final CategoryModel category;
   int count;
+  double sum;
 
   ProductModel(
       {required this.id,
@@ -17,7 +18,8 @@ class ProductModel {
           'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of t',
       required this.price,
       required this.category,
-      this.count = 1});
+      this.count = 1,
+      this.sum = 0.0});
 }
 
 List<ProductModel> favProducts = [];

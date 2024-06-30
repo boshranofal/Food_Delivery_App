@@ -17,7 +17,7 @@ class _CustomBottomNavbarState extends State<CustomBottomNavbar> {
   int selectedIndex = 0;
 
   List<Widget> bodyWidgets = [
-    const HomePage(),
+    HomePage(),
     const Favoritepage(),
     const ProfilePage(),
   ];

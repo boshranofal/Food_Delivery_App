@@ -1,14 +1,23 @@
 //import 'dart:ffi';
 
+//import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:food_delivery/models/product_model.dart';
 import 'package:food_delivery/utils/app_colors.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:food_delivery/views/pages/coupon_page.dart';
+import 'package:food_delivery/views/pages/orders_page.dart';
 
-class ProductDetailsPage extends StatelessWidget {
+class ProductDetailsPage extends StatefulWidget {
   final ProductModel product;
   const ProductDetailsPage({super.key, required this.product});
 
+  @override
+  State<ProductDetailsPage> createState() => _ProductDetailsPageState();
+}
+
+class _ProductDetailsPageState extends State<ProductDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +34,7 @@ class ProductDetailsPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   CachedNetworkImage(
-                    imageUrl: product.imgUrl,
+                    imageUrl: widget.product.imgUrl,
                     height: 200,
                   ),
                   const SizedBox(
@@ -33,14 +42,14 @@ class ProductDetailsPage extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Text(product.name,
+                      Text(widget.product.name,
                           style: const TextStyle(
                               fontSize: 24, fontWeight: FontWeight.bold)),
                       const SizedBox(
                         width: 100,
                       ),
                       Text(
-                        "\$ ${product.price}",
+                        "\$ ${widget.product.price}",
                         style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
@@ -69,7 +78,7 @@ class ProductDetailsPage extends StatelessWidget {
                     height: 12,
                   ),
                   Text(
-                    product.description,
+                    widget.product.description,
                     style: const TextStyle(
                         color: Color.fromARGB(255, 97, 94, 94), fontSize: 12),
                   ),
@@ -159,7 +168,12 @@ class ProductDetailsPage extends StatelessWidget {
                               horizontal: 32, vertical: 16),
                           textStyle: const TextStyle(fontSize: 20),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (_) {
+                            return CouponPage();
+                          }));
+                        },
                         child: const Text(
                           "Add Cart",
                           style: TextStyle(color: Colors.white),
