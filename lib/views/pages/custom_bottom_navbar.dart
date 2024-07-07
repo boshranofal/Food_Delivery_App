@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/util/app_colors.dart';
-import 'package:food_app/views/pages/cart_page.dart';
+//import 'package:food_app/views/pages/cart_page.dart';
 import 'package:food_app/views/pages/favorite_page.dart';
 import 'package:food_app/views/pages/home_page.dart';
 import 'package:food_app/views/pages/profile_page.dart';
@@ -20,7 +20,6 @@ class _CustomBottomNavbarState extends State<CustomBottomNavbar> {
   List<Widget> bodyWidgets = [
     const HomePage(),
     const Favoritepage(),
-    //const CartPage(),
     const ProfilePage(),
   ];
 
@@ -57,12 +56,6 @@ class _CustomBottomNavbarState extends State<CustomBottomNavbar> {
             ),
             label: 'Favorites',
           ),
-          // BottomNavigationBarItem(
-          //   icon: ImageIcon(
-          //     AssetImage('assets/images/cart.png'),
-          //   ),
-          //   label: 'Cart',
-          // ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.person,

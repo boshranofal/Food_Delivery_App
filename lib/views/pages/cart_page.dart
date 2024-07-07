@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/models/product_model.dart';
-import 'package:food_app/util/app_colors.dart';
+//import 'package:food_app/util/app_colors.dart';
 import 'package:food_app/views/pages/orders_page.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
-
   @override
   State<CartPage> createState() => _OrdersPageState();
 }
@@ -17,19 +16,6 @@ class _OrdersPageState extends State<CartPage> {
       backgroundColor: const Color.fromARGB(255, 100, 75, 119),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 100, 75, 119),
-        // actions: [
-        //   Center(
-        //       child: Padding(
-        //           padding: const EdgeInsets.only(right: 16),
-        //           child: ElevatedButton(
-        //               onPressed: () {},
-        //               child: const Row(
-        //                 children: [
-        //                   Text("Checkout--->"),
-        //                   //Icon(Icons.arrow_circle_right_outlined)
-        //                 ],
-        //               ))))
-        // ],
         title: const Text(
           "My Cart",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
