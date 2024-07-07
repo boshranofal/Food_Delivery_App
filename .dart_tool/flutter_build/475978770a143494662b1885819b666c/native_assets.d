@@ -1,0 +1,1 @@
+ C:\\Users\\Lenovo\\Documents\\flutter\ apps\\food_app\\.dart_tool\\flutter_build\\475978770a143494662b1885819b666c\\native_assets.yaml: 
